@@ -47,6 +47,13 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
 
+  # 加载 svg 格式的图片
+  flutter_svg:
+  # 资源管理，用于生成命名的资源路径
+  flutter_gen_runner:
+  # 用于代码生成
+  build_runner:
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -57,6 +64,20 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+    # Add assets from the images directory to the application.
+    - assets/images/global/
+    - assets/images/login/
+
+# flutter_gen 配置
+flutter_gen:
+  output: lib/core/gen/
+  line_length: 120
+  integrations:
+    flutter_svg: true
+    flare_flutter: false
+    rive: false
 
   # To add assets to your application, add an assets section, like this:
   # assets:
