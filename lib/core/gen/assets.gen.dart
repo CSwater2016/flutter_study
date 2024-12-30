@@ -22,14 +22,20 @@ class $AssetsImagesGen {
 class $AssetsImagesLoginGen {
   const $AssetsImagesLoginGen();
 
+  /// File path: assets/images/login/login_app_name.svg
+  SvgGenImage get loginAppName => const SvgGenImage('assets/images/login/login_app_name.svg');
+
   /// File path: assets/images/login/login_bacground.png
   AssetGenImage get loginBacground => const AssetGenImage('assets/images/login/login_bacground.png');
 
   /// File path: assets/images/login/login_bacground_logo.svg
   SvgGenImage get loginBacgroundLogo => const SvgGenImage('assets/images/login/login_bacground_logo.svg');
 
+  /// File path: assets/images/login/login_gradient.png
+  AssetGenImage get loginGradient => const AssetGenImage('assets/images/login/login_gradient.png');
+
   /// List of all assets
-  List<dynamic> get values => [loginBacground, loginBacgroundLogo];
+  List<dynamic> get values => [loginAppName, loginBacground, loginBacgroundLogo, loginGradient];
 }
 
 class Assets {
