@@ -1,5 +1,5 @@
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 /*
   Provider 的基础
@@ -7,6 +7,24 @@ import 'package:flutter/material.dart';
     1. 开始监听时[创建]一个对象：create
     2. [复用]一个已经存在的对象实例：.value
   第二步：(子树中)读取值
+    1. context.watch<T>()
+      widget 能够监听到 T 类型的 provider 发生的改变。
+      ❗️Provider 改变之后的[重建边界]：重建调用了读取值的 widget 以及其子树。
+    2. context.read<T>()
+      直接返回 T，不会监听改变。
+      ❗️Provider 改变之后不会重建，在调用的时候就结束了。
+    3. context.select<T，R>(R cb(T value))
+      允许 widget 只监听 T 上的一部分内容的改变。
+    4. context.of<T>()
+      默认表现类似 watch, listen: false 的时候, 表现为 read
+    
+    优化：
+    1. Consumer
+      * 订阅整个 Provider，状态变化会触发 builder 重建。
+      * 只会重建 Consumer 的 builder 部分，而不会重建包含 Consumer 的 Widget 本身。
+    2. Selector
+      * 仅订阅 Provider 指定的一部分，状态变化不会触发 builder 重建。
+      * 只会重建 Selector 的 builder 部分，而不会重建包含 Selector 的 Widget 本身。
  */
 
 void exposingValue() {
@@ -32,6 +50,12 @@ void exposingValue() {
     // 暴露的值对 Provider 的子树是可见的
     child: Container(),
   );
+}
+
+void readingValue(BuildContext context) {
+  Text(context.watch<String>());
+  context.read<String>();
+  context.select<String, String>((value) => value);
 }
 
 // MARK: - Warning
@@ -60,6 +84,10 @@ void exposingValueWarning() {
     update: (context, value) => _CounterModel(count),
     child: Container(),
   );
+}
+
+void readingValueWarning() {
+  // 依赖可能不存在的 Provider (监听了一个根本不存在的 Provider)
 }
 
 // MARK: - Model

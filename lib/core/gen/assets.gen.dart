@@ -25,17 +25,30 @@ class $AssetsImagesLoginGen {
   /// File path: assets/images/login/login_app_name.svg
   SvgGenImage get loginAppName => const SvgGenImage('assets/images/login/login_app_name.svg');
 
-  /// File path: assets/images/login/login_bacground.png
-  AssetGenImage get loginBacground => const AssetGenImage('assets/images/login/login_bacground.png');
-
   /// File path: assets/images/login/login_bacground_logo.svg
   SvgGenImage get loginBacgroundLogo => const SvgGenImage('assets/images/login/login_bacground_logo.svg');
 
-  /// File path: assets/images/login/login_gradient.png
-  AssetGenImage get loginGradient => const AssetGenImage('assets/images/login/login_gradient.png');
+  /// File path: assets/images/login/login_background@2x.png
+  AssetGenImage get loginBackground2x => const AssetGenImage('assets/images/login/login_background@2x.png');
+
+  /// File path: assets/images/login/login_checkmark_checked.svg
+  SvgGenImage get loginCheckmarkChecked => const SvgGenImage('assets/images/login/login_checkmark_checked.svg');
+
+  /// File path: assets/images/login/login_checkmark_uncheck.svg
+  SvgGenImage get loginCheckmarkUncheck => const SvgGenImage('assets/images/login/login_checkmark_uncheck.svg');
+
+  /// File path: assets/images/login/login_welcome_text.svg
+  SvgGenImage get loginWelcomeText => const SvgGenImage('assets/images/login/login_welcome_text.svg');
 
   /// List of all assets
-  List<dynamic> get values => [loginAppName, loginBacground, loginBacgroundLogo, loginGradient];
+  List<dynamic> get values => [
+        loginAppName,
+        loginBacgroundLogo,
+        loginBackground2x,
+        loginCheckmarkChecked,
+        loginCheckmarkUncheck,
+        loginWelcomeText
+      ];
 }
 
 class Assets {
