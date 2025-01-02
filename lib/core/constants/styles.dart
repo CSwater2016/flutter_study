@@ -13,6 +13,14 @@ class Styles {
   static Color c_999999 = const Color(0xFF999999);
   static Color c_333333 = const Color(0xFF333333);
 
+  // 基础配置, 理解为占位配置就行了。
+  static TextStyle basic = TextStyle(
+    color: Styles.c_333333,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    decoration: TextDecoration.none,
+  );
+
   static TextStyle ts_999999_f12_w400 = TextStyle(
     color: Styles.c_999999,
     fontSize: 12,
