@@ -72,6 +72,7 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/global/
     - assets/images/login/
+    - assets/images/main_tab/
 
 # flutter_gen 配置
 flutter_gen:

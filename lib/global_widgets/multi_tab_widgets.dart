@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/core/constants/styles.dart';
+import 'package:flutter_study/core/gen/assets.gen.dart';
+import 'package:flutter_study/core/widgets/image_view.dart';
 
 class MultiTabWidgets extends StatefulWidget {
   const MultiTabWidgets({super.key});
@@ -27,27 +30,46 @@ class _MultiTabWidgetsState extends State<MultiTabWidgets> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Bottom Navigation Bar'),
+        title: const Text('Flutter Bottom Navigation Bar'),
       ),
       body: _pages[_currentIndex], // 根据 Tab 切换页面
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex, // 当前选中的 Tab 下标
-        onTap: _onItemTapped, // Tab 点击时的回调
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: 'Profile',
-          ),
-        ],
+      bottomNavigationBar: SizedBox(
+        height: 64 + MediaQuery.of(context).padding.bottom,
+        child: BottomNavigationBar(
+          selectedFontSize: 10,
+          unselectedFontSize: 10,
+          selectedItemColor: Styles.c_B381D9,
+          unselectedItemColor: Styles.c_999999,
+          type: BottomNavigationBarType.fixed, // 固定宽度
+          currentIndex: _currentIndex, // 当前选中的 Tab 下标
+          onTap: _onItemTapped, // Tab 点击时的回调
+          items: <BottomNavigationBarItem>[
+            _buildBottomNavigationBarItem('首页', Assets.images.mainTab.mainTabCalenderUnselected.path,
+                Assets.images.mainTab.mainTabCalenderSelected.path),
+            _buildBottomNavigationBarItem('课程', Assets.images.mainTab.mainTabCourseUnselected.path,
+                Assets.images.mainTab.mainTabCourseSelected.path),
+            _buildBottomNavigationBarItem(
+                '我的', Assets.images.mainTab.mainTabMineUnselected.path, Assets.images.mainTab.mainTabMineSelected.path),
+          ],
+        ),
       ),
+    );
+  }
+
+  BottomNavigationBarItem _buildBottomNavigationBarItem(String label, String iconPath, String activeIconPath) {
+    return BottomNavigationBarItem(
+      icon: Padding(
+          padding: const EdgeInsets.only(bottom: 6),
+          child: ImageView(
+            path: iconPath,
+          )),
+      activeIcon: Padding(
+          padding: const EdgeInsets.only(bottom: 6),
+          child: ImageView(
+            path: activeIconPath,
+            color: Styles.c_B381D9,
+          )),
+      label: label,
     );
   }
 }

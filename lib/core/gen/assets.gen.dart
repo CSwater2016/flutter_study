@@ -17,6 +17,9 @@ class $AssetsImagesGen {
 
   /// Directory path: assets/images/login
   $AssetsImagesLoginGen get login => const $AssetsImagesLoginGen();
+
+  /// Directory path: assets/images/main_tab
+  $AssetsImagesMainTabGen get mainTab => const $AssetsImagesMainTabGen();
 }
 
 class $AssetsImagesLoginGen {
@@ -48,6 +51,39 @@ class $AssetsImagesLoginGen {
         loginCheckmarkChecked,
         loginCheckmarkUncheck,
         loginWelcomeText
+      ];
+}
+
+class $AssetsImagesMainTabGen {
+  const $AssetsImagesMainTabGen();
+
+  /// File path: assets/images/main_tab/main_tab_calender_selected.svg
+  SvgGenImage get mainTabCalenderSelected => const SvgGenImage('assets/images/main_tab/main_tab_calender_selected.svg');
+
+  /// File path: assets/images/main_tab/main_tab_calender_unselected.svg
+  SvgGenImage get mainTabCalenderUnselected =>
+      const SvgGenImage('assets/images/main_tab/main_tab_calender_unselected.svg');
+
+  /// File path: assets/images/main_tab/main_tab_course_selected.svg
+  SvgGenImage get mainTabCourseSelected => const SvgGenImage('assets/images/main_tab/main_tab_course_selected.svg');
+
+  /// File path: assets/images/main_tab/main_tab_course_unselected.svg
+  SvgGenImage get mainTabCourseUnselected => const SvgGenImage('assets/images/main_tab/main_tab_course_unselected.svg');
+
+  /// File path: assets/images/main_tab/main_tab_mine_selected.svg
+  SvgGenImage get mainTabMineSelected => const SvgGenImage('assets/images/main_tab/main_tab_mine_selected.svg');
+
+  /// File path: assets/images/main_tab/main_tab_mine_unselected.svg
+  SvgGenImage get mainTabMineUnselected => const SvgGenImage('assets/images/main_tab/main_tab_mine_unselected.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [
+        mainTabCalenderSelected,
+        mainTabCalenderUnselected,
+        mainTabCourseSelected,
+        mainTabCourseUnselected,
+        mainTabMineSelected,
+        mainTabMineUnselected
       ];
 }
 
