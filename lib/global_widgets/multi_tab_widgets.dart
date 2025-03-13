@@ -3,6 +3,11 @@ import 'package:flutter_study/core/constants/styles.dart';
 import 'package:flutter_study/core/gen/assets.gen.dart';
 import 'package:flutter_study/core/widgets/image_view.dart';
 
+/*
+BottomNavigationBar
+一个底部导航栏，通常用于Scaffold组件的底部，可指定颜色和模式，接受点击回调，可与PageView实现切页效果。
+*/
+
 class MultiTabWidgets extends StatefulWidget {
   const MultiTabWidgets({super.key});
 
